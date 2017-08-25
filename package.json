@@ -1,0 +1,30 @@
+{
+  "name": "eve-map",
+  "version": "0.0.1",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Kyle 'puttputt' Smyth",
+    "email": "kylesmyth@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typeorm/typescript-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typeorm/typescript-example/issues"
+  },
+  "devDependencies": {
+    "@types/mysql": "0.0.34",
+    "typescript": "^2.1.5"
+  },
+  "dependencies": {
+    "@types/node": "^7.0.4",
+    "mysql": "^2.14.1",
+    "reflect-metadata": "^0.1.9",
+    "typeorm": "0.0.11"
+  },
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  }
+}
