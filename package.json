@@ -15,7 +15,6 @@
     "url": "https://github.com/typeorm/typescript-example/issues"
   },
   "devDependencies": {
-    "@types/d3": "^4.10.0",
     "@types/mysql": "0.0.34",
     "typescript": "^2.1.5"
   },
@@ -23,12 +22,14 @@
     "@types/node": "^7.0.4",
     "body-parser": "^1.17.2",
     "d3": "^4.10.0",
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
     "mysql": "^2.14.1",
     "reflect-metadata": "^0.1.9",
     "typeorm": "0.0.11"
   },
   "scripts": {
-    "start": "tsc && node dist/index.js"
+    "html": "cp -a ./src/views/. ./dist/views",
+    "start": "tsc -w && npm run html && node dist/index.js"
   }
 }

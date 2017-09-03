@@ -28,6 +28,6 @@
 
 //https://www.evepanel.net/blog/eve-online/static-data-dump/creating-a-map-of-the-universe.html
 
-import * as d3 from "d3";
+//import * as d3 from "d3";
 
-let container = d3.select("body").append("svg").attr("height");
+//let container = d3.select("body").append("svg").attr("height");

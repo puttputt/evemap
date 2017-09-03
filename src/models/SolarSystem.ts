@@ -5,7 +5,7 @@ import {Region} from "./Region";
 export class SolarSystem {
 
     @PrimaryColumn()
-    solarSystemID : number;
+    id : number;
 
     @Column()
     solarSystemName : string;

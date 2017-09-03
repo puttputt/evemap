@@ -24,4 +24,26 @@ export class Region {
 
     @OneToMany(type => SolarSystem, system => system.region)
     systems : SolarSystem[];
+
+    public static sanitizeData(regions : Region[]): Region[] {
+        regions.forEach(function(region) {
+            region.systems.forEach(function(system) {
+                system.x = this.resetCoord(system.x);
+                system.y = this.resetCoord(system.z);
+                system.z = null;
+            });
+            region.x = this.resetCoord(region.x);
+            region.y = this.resetCoord(region.z);
+            region.z = null;
+        });
+
+        return regions;
+    }
+
+    private resetCoord(coordinate : number) : number {
+        var newCoordinate = coordinate / 10000000000000000;
+        newCoordinate = newCoordinate * 10;
+        newCoordinate += 500;
+        return newCoordinate;
+    }
 }
