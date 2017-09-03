@@ -28,12 +28,12 @@ export class Region {
     public static sanitizeData(regions : Region[]): Region[] {
         regions.forEach(function(region) {
             region.systems.forEach(function(system) {
-                system.x = this.resetCoord(system.x);
-                system.y = this.resetCoord(system.z);
+                system.x = region.resetCoord(system.x);
+                system.y = region.resetCoord(system.z);
                 system.z = null;
             });
-            region.x = this.resetCoord(region.x);
-            region.y = this.resetCoord(region.z);
+            region.x = region.resetCoord(region.x);
+            region.y = region.resetCoord(region.z);
             region.z = null;
         });
 

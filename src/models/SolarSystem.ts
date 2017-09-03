@@ -22,8 +22,6 @@ export class SolarSystem {
     @Column({"nullable" : true})
     factionID : number;
 
-    //@Column()
-    //regionID : number;
     @ManyToOne(type => Region, region => region.systems)
     region : Region;
 }

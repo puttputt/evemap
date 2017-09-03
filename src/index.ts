@@ -16,8 +16,13 @@ createConnection().then(async connection => {
     console.log("Connection established");
 
     const regionRepository = getEntityManager().getRepository(Region);
-    const regions = await regionRepository.find();
+    let regions = await regionRepository.createQueryBuilder('region').leftJoinAndSelect("region.systems", "system").getMany();
+
     console.log(regions);
+
+    let r = Region.sanitizeData(regions);
+
+    console.log(r);
 
 }).catch(error => console.log("Error: ", error));
 

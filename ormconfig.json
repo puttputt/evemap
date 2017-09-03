@@ -9,6 +9,7 @@
     "password": "bailey123",
     "database": "eve"
     },
+    "autoSchemaSync": false,
     "entities": [
       "dist/models/*.js"
     ],

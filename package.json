@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@types/mysql": "0.0.34",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.2",
     "typescript": "^2.1.5"
   },
   "dependencies": {
@@ -30,6 +32,6 @@
   },
   "scripts": {
     "html": "cp -a ./src/views/. ./dist/views",
-    "start": "tsc -w && npm run html && node dist/index.js"
+    "start": "tsc && npm run html && node dist/index.js"
   }
 }

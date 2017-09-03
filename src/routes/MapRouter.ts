@@ -18,11 +18,10 @@ export class MapRouter {
     public async renderMap(req: Request, res: Response, next: NextFunction) {
 
         const regionRepository = getEntityManager().getRepository(Region);
-        const regions = await regionRepository.find();
-        console.log(regions);
+        let regions = await regionRepository.createQueryBuilder('region').leftJoinAndSelect("region.systems", "system").getMany();
+        let sanitizedRegions = Region.sanitizeData(regions);
 
-        var sanitizedRegions = Region.sanitizeData(regions);
-        res.send(sanitizedRegions);
+        res.render('index', { data : sanitizedRegions });
     }
 
     
