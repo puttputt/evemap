@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@types/mysql": "0.0.34",
+    "@types/request-promise": "^4.1.37",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.2",
     "typescript": "^2.1.5"
@@ -26,12 +27,14 @@
     "d3": "^4.10.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "http": "0.0.0",
     "mysql": "^2.14.1",
     "reflect-metadata": "^0.1.9",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "typeorm": "0.0.11"
   },
   "scripts": {
-    "html": "cp -a ./src/views/. ./dist/views",
-    "start": "tsc && npm run html && node dist/index.js"
+    "start": "node dist/index.js"
   }
 }

@@ -1,5 +1,7 @@
-import {Entity, Column, PrimaryColumn, ManyToOne} from "typeorm";
+import {Entity, Column, PrimaryColumn, ManyToOne, OneToOne, JoinColumn} from "typeorm";
 import {Region} from "./Region";
+import {Alliance} from "./Alliance";
+import {Sov} from "./Sov";
 
 @Entity()
 export class SolarSystem {
@@ -24,4 +26,8 @@ export class SolarSystem {
 
     @ManyToOne(type => Region, region => region.systems)
     region : Region;
+
+    @OneToOne(type => Sov)
+    @JoinColumn()
+    sov: Sov;
 }

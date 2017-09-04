@@ -11,27 +11,16 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import App from './App';
 
+import {EveService} from "./services/EveService";
+
 
 createConnection().then(async connection => {
     console.log("Connection established");
 
-    const regionRepository = getEntityManager().getRepository(Region);
-    let regions = await regionRepository.createQueryBuilder('region').leftJoinAndSelect("region.systems", "system").getMany();
-
-    console.log(regions);
-
-    let r = Region.sanitizeData(regions);
-
-    console.log(r);
+    //await new EveService().getAlliancesFromESI();
+    //await new EveService().getSovFromESI();
 
 }).catch(error => console.log("Error: ", error));
-
-// app.get('/', function(req, res) {
-//     res.render('index', {});
-// });
-
-
-
 
 debug('ts-express:server');
 

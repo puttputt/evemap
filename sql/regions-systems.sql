@@ -23,9 +23,9 @@
 # Dump of table region
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `region`;
+#DROP TABLE IF EXISTS `region`;
 
-CREATE TABLE `region` (
+CREATE TABLE IF NOT EXISTS `region` (
   `id` int(11) NOT NULL,
   `regionName` varchar(100) DEFAULT NULL,
   `x` double DEFAULT NULL,
@@ -155,9 +155,9 @@ UNLOCK TABLES;
 # Dump of table solar_system
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `solar_system`;
+#DROP TABLE IF EXISTS `solar_system`;
 
-CREATE TABLE `solar_system` (
+CREATE TABLE IF NOT EXISTS `solar_system` (
   `region` int(11) DEFAULT NULL,
   `constellationID` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL,
