@@ -30,4 +30,25 @@ export class SolarSystem {
     @OneToOne(type => Sov)
     @JoinColumn()
     sov: Sov;
+
+    public static sanitizeData(sytems : SolarSystem[]): SolarSystem[] {
+        sytems.forEach(function(system) {
+            system.x = system.resetCoord(system.x);
+            system.y = system.resetCoord(system.z);
+            system.z = null;
+
+            system.region.x = system.resetCoord(system.region.x);
+            system.region.y = system.resetCoord(system.region.z);
+            system.region.z = null;
+        });
+
+        return sytems;
+    }
+
+    private resetCoord(coordinate : number) : number {
+        var newCoordinate = coordinate / 10000000000000000;
+        newCoordinate = newCoordinate * 10;
+        newCoordinate += 500;
+        return newCoordinate;
+    }
 }

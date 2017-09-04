@@ -12,10 +12,11 @@ export class MapRouter {
     }
 
     init() {
-        this.router.get('/', this.renderMap);
+        this.router.get('/regions', this.getRegions);
+        this.router.get('/systems', this.getSystems);
     }
 
-    public async renderMap(req: Request, res: Response, next: NextFunction) {
+    public async getRegions(req: Request, res: Response, next: NextFunction) {
 
         const regionRepository = getEntityManager().getRepository(Region);
         let regions = await regionRepository.createQueryBuilder('region')
@@ -24,6 +25,19 @@ export class MapRouter {
             .leftJoinAndSelect("sov.alliance", "alliance").getMany();
 
         let sanitizedRegions = Region.sanitizeData(regions);
+
+        res.send(sanitizedRegions);
+    }
+
+    public async getSystems(req: Request, res: Response, next: NextFunction) {
+        
+        const systemRepository = getEntityManager().getRepository(SolarSystem);
+        let systems = await systemRepository.createQueryBuilder('system')
+            .leftJoinAndSelect("system.region", "region")
+            .leftJoinAndSelect("system.sov", "sov")
+            .leftJoinAndSelect("sov.alliance", "alliance").getMany();
+
+        let sanitizedRegions = SolarSystem.sanitizeData(systems);
 
         res.send(sanitizedRegions);
     }

@@ -16,7 +16,8 @@
 
 // var circles = svgContainer.selectAll("rect")
 //   .data(systems)
-//   .enter()
+//   .
+
 //   .append("rect");
 
 // var circlAttr = circles

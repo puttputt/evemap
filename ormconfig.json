@@ -11,13 +11,13 @@
     },
     "autoSchemaSync": true,
     "entities": [
-      "dist/models/*.js"
+      "dist/server/models/*.js"
     ],
     "subscribers": [
-      "dist/subscriber/*.js,"
+      "dist/server/subscriber/*.js,"
     ],
     "migrations": [
-      "dist/migration/*.js"
+      "dist/server/migration/*.js"
     ]
   }
 ]
